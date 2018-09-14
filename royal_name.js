@@ -17,10 +17,26 @@ function sortRoyalName(names){
   });
 
   return royalNames.map(function(arr){
-    return arr.join('');
+    return arr.join(' ');
   });
 
   function convertRome(rome){
-    
+    let dic = {I:1, IV:4, V:5, IX:9, X:10, XL:40, L:50};
+    let twoChars = {IV:4, IX:9, XL:40};
+    if(rome in dic) return dic[rome];
+    let num = 0;
+
+    for(let key in twoChars){
+      let i = rome.indexOf(key);
+      if(i > -1) {
+        rome.splice(i,2);
+        num += twoChars[key];
+      }
+    }
+    for(let i = 0; i < rome.length; i++){
+      num += dic[rome[i]];
+    }
+
+    return num;
   }
 }
