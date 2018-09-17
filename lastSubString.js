@@ -1,4 +1,22 @@
 // 返回一个string的所有substring按字典顺序排序后的最后一个substring. 例子："acb"的substring排序{"a", "ac", "acb", "b", "c", "cb"}， 返回"cb" 。
+
+function lastSubString(str){
+	if(str.length === 0) return '';
+	let code = -Infinity;
+	let idx = -1;
+	for(let i = 0; i < str.length; i++){
+		if(code < str[i].charCodeAt()){
+				str[i].charCodeAt()
+				idx = i;
+		}
+	}
+
+	return str.slice(idx);
+
+}
+
+
+
 // import java.util.*;
 // public class LastSubstring {
 //     public String laststring(String s){
